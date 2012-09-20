@@ -1,0 +1,36 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+  <persistence-unit name="PmPersistenceUnit" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+    <class>com.propertyminder.craigslist.common.domain.StateInfo</class>
+    <class>com.propertyminder.craigslist.common.domain.SiteInfo</class>
+    <class>com.propertyminder.craigslist.common.domain.SubAreaInfo</class>
+    <class>com.propertyminder.craigslist.common.domain.HoodInfo</class>
+    <class>com.propertyminder.craigslist.backend.domain.SearchCategory</class>
+
+    <properties>
+      <property name="hibernate.id.new_generator_mappings" value="true"/>
+      <property name="hibernate.connection.provider_class" value="org.hibernate.connection.C3P0ConnectionProvider"/>
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
+      <property name="hibernate.show_sql" value="false"/>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+      <property name="hibernate.connection.driver_class" value="org.gjt.mm.mysql.Driver" />
+      <property name="hibernate.connection.url" value="jdbc:mysql://localhost/craigslist" />
+      <property name="hibernate.connection.username" value="craigslist" />
+      <property name="hibernate.connection.password" value="craigslist" />
+
+      <property name="hibernate.c3p0.min_size" value="5"/>
+      <property name="hibernate.c3p0.max_size" value="20"/>
+      <property name="hibernate.c3p0.timeout" value="300"/>
+      <property name="hibernate.c3p0.max_statements" value="50"/>
+      <property name="hibernate.c3p0.idle_test_period" value="3000"/>
+
+      <!--<property name="hibernate.c3p0.idle_test_period" value="5000"/>-->
+      <property name="hibernate.c3p0.preferredTestQuery" value="SELECT 1"/>
+    </properties>
+  </persistence-unit>
+</persistence>
