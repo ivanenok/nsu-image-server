@@ -38,7 +38,7 @@ public class ImagesController {
   }
 
   private void prepareImagesData() {
-    String[] fileNames = new String[]{"1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"};
+    String[] fileNames = new String[]{"image1.bmp", "image2.bmp", "image3.bmp", "image4.bmp", "image5.bmp"};
     for (int i = 0, fileNamesLength = fileNames.length; i < fileNamesLength; i++) {
       String fileName = fileNames[i];
       try {
@@ -66,6 +66,8 @@ public class ImagesController {
   private ImagePartInfo processRequest(int serverId, HttpServletRequest request, HttpServletResponse response) {
     ImagePartInfo result = null;
     ServerBehaviour behaviour = resolverServerBehaviour();
+//    ServerBehaviour behaviour = ServerBehaviour.RESPONSE_OK;
+
     LOGGER.debug("Behaviour resolved for server. Behaviour: " + behaviour);
     switch (behaviour) {
       case RESPONSE_OK:
@@ -88,7 +90,7 @@ public class ImagesController {
 
   private ImagePartInfo getImagePartByServerId(int serverId) {
     Map<Integer, ImagePartInfo> integerImagePartInfoMap = IMAGES_DATA.get(serverId);
-    return integerImagePartInfoMap.get(RANDOM_GENARATOR.nextInt(PARTS_COUNT));
+    return integerImagePartInfoMap.get(RANDOM_GENARATOR.nextInt(PARTS_COUNT) + 1);
   }
 
   private void sleepSomeTime() {

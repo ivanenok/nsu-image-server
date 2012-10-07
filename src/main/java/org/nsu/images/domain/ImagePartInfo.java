@@ -13,7 +13,7 @@ public class ImagePartInfo implements Serializable{
   private long sizeOfPartInBytes;
   private long sizeOfImageInBytes;
   private String imageName;
-  private long imagePartNumber;
+  private int imagePartNumber;
   private String base64Data;
 
   public String getImageName() {
@@ -40,11 +40,11 @@ public class ImagePartInfo implements Serializable{
     this.sizeOfImageInBytes = sizeOfImageInBytes;
   }
 
-  public long getImagePartNumber() {
+  public int getImagePartNumber() {
     return imagePartNumber;
   }
 
-  public void setImagePartNumber(long imagePartNumber) {
+  public void setImagePartNumber(int imagePartNumber) {
     this.imagePartNumber = imagePartNumber;
   }
 
@@ -54,5 +54,15 @@ public class ImagePartInfo implements Serializable{
 
   public void setBase64Data(String base64Data) {
     this.base64Data = base64Data;
+  }
+
+  @Override
+  public String toString() {
+    return "ImagePartInfo{" +
+        "sizeOfPartInBytes=" + sizeOfPartInBytes +
+        ", sizeOfImageInBytes=" + sizeOfImageInBytes +
+        ", imageName='" + imageName + '\'' +
+        ", imagePartNumber=" + imagePartNumber +
+        '}';
   }
 }
